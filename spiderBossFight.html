@@ -14,7 +14,7 @@
 				<!-- Header -->
 					<header id="header">
 						<div class="banner-wrapper">
-							<img class="banner-image" src="images/rattusMachinatusImages/kitchenscreenshot1.png" alt="Banner" />
+							<img class="banner-image" src="images/spiderBossImages/spiderBossBanner.png" alt="Banner" />
 							<div class="banner-content">
 								<h1>Spider Boss Fight</h1>
 							</div>
@@ -27,46 +27,74 @@
 							<h1></h1>
 							<section>
 								<h2>About the Project</h2>
-								<p>This project was developed during my second year of university and was my first introduction to Unreal Engine.</p>
+								<p>This project was developed during my second year of university and was my first introduction to Unreal Engine. It features a large spider boss within a cave environment. The fight consists of the spider shooting web projectiles at you, the player must return these projectiles by swinging a bat meaning they need to time their swings or risk taking damage themselves.</p>
 								<ul>
-									<li>Lead a swarm of AI-driven rats</li>
-									<li>Use the toads and rats four abilities: Break, Build, Push and Throw to complete puzzles</li>
-									<li>Hand-crafted puzzles</li>
-									<li>Multiple minigames including fishing and gambling</li>
+									<li>Simplistic boss AI system.</li>
+									<li>Different stages based on the boss' health.</li>
+									<li>Features Inverse Kinematics (IK) for the spider feet.</li>
 								</ul>
 							</section>
 							<section>
 								<h2>Development</h2>
-								<p>This project was created by a team of 8 students (including me!) at Falmouth University. My main roles included programming the rats AI, developing the puzzle mechanics and implementing the minigames. We used Unity and C# for this project.</p>
-								<p>Throughout development I learned a lot in terms of creating AI for games and working with Unity's navigation AI system. I also developed my understanding of object-oriented programming by designing flexible systems for interactable objects and puzzle mechanics. By creating a generic base class for interactables, I was able to easily extend and create different puzzle elements, making the game more modular and maintainable.</p>
-								<p>I also explored creating custom shaders and visual effects in Unity's URP. I learned how to use Shader Graph to create multiple effects, including a scan that highlights nearby interactables to the player, a ghost effect and a visual distortion effect. For particle effects I created a few generic effects such as fire, dust, sparkles and localised fog. </p>
+								<p>This project was my first experience with Unreal Engine which meant I lot of the development process involved learning and familiarising myself with Unreal Engine. I learnt how programmers can use blueprints as well as C++ to quickly develop new classes and mechanics. While my focus was primarily on C++ I used blueprints to create a few smaller features as well as an Inverse Kinematics system for the spider's feet.</p>
+								<p>Despite my lack of knowledge in Unreal the hardest part of this project for me was the Inverse Kinematics system. I had never created an IK system before and it took a lot of trial and error to get the spider's feet to move correctly as opposed to clipping through the floor or flying into the air. I ended up using a combination of IK bones and animation blueprints to get the desired effect. This also involved doing my own 3D modelling in blender both to create the spider and rig it. This was a new process to me however I enjoyed the creative process of modelling, less so the process of rigging.</p>
+								<p>The actual boss fight was a lot of fun to create, since the spider had IK the actual movement was incredibly simple, it was just a case of moving the spiders position around the player. The more difficult part was creating the web projectiles, I did this by creating a projectile class that would spawn at the spiders location, then through the use of unreals projectile movement component gave the web a homing effect that disables after a few seconds. This combination of components allows for a projectile that can not only be dodged but also returned to the spider through the use of a sphere cast from the player camera. After syncing up the enemy and players health with UI the final addition I made was to add different stages to the boss, to make the fight get harder as you progress. At each stage 4 things happen: </p>
+								<ul>
+									<li>The spider's projectile speed is increased.</li>
+									<li>The spider's movement speed is increased.</li>
+									<li>The spider's firerate is increased.</li>
+									<li>The spider's projectiles progressively stop arching, decreasing the time the player has to react.</li>
+								</ul>
 							</section>
+							<section>
+								<h2>What I Learnt</h2>
+								<ul>
+									<li>How to use Unreal Engine's terrain system, lighting systems, etc.</li>
+									<li>3D sculpting / modelling and rigging in Blender.</li>
+									<li>Working with blueprints in Unreal and creating Inverse Kinematics systems.</li>
+									<li>Working in Unreal Engine with C++ to create simple AI systems and player movement.</li>
+								</ul>
 							<h2>Screenshots</h2>
 							<section class="tiles">
 								<article class="style0">
 									<span class="image">
-										<img src="images/rattusMachinatusImages/kitchenscreenshot1.png" alt="Screenshot 1" />
+										<img src="images/spiderBossImages/spiderBossBanner.png" alt="Screenshot 1" />
 									</span>
+									<a>
+										<div class="content">
+											<p>Final environment and spider boss.</p>
+										</div>
+									</a>
 								</article>
 								<article class="style0">
 									<span class="image">
-										<img src="images/rattusMachinatusImages/kitchenscreenshot2.png" alt="Screenshot 2" />
+										<img src="images/spiderBossImages/spiderBossScreenshot.png" alt="Screenshot 1" />
 									</span>
+									<a>
+										<div class="content">
+											<p>Inverse Kinematics testing by manually repositioning the spider.</p>
+										</div>
+									</a>
 								</article>
 								<article class="style0">
 									<span class="image">
-										<img src="images/rattusMachinatusImages/kitchenscreenshot3.png" alt="Screenshot 3" />
+										<img src="images/spiderBossImages/spiderBossScreenshot2.png" alt="Screenshot 1" />
 									</span>
+									<a>
+										<div class="content">
+											<p>First attempt at making a projectile in the game.</p>
+										</div>
+									</a>
 								</article>
 								<article class="style0">
 									<span class="image">
-										<img src="images/rattusMachinatusImages/kitchenscreenshot4.png" alt="Screenshot 4" />
+										<img src="images/spiderBossImages/spiderBossScreenshot3.png" alt="Screenshot 1" />
 									</span>
-								</article>
-								<article class="style0">
-									<span class="image">
-										<img src="images/rattusMachinatusImages/kitchenscreenshot5.png" alt="Screenshot 5" />
-									</span>
+									<a>
+										<div class="content">
+											<p>First test of spider movement in game.</p>
+										</div>
+									</a>
 								</article>
 							</section>
 						</div>
