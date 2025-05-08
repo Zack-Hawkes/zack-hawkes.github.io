@@ -1,0 +1,163 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Oh, Flock!</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<style>
+			.gif-center {
+				display: flex;
+				justify-content: center;
+				gap: 10px;
+			}
+		</style>
+	</head>
+	<body class="is-preload">
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<div class="banner-wrapper">
+							<img class="banner-image" src="images/ohFlockImages/ohFlockScreenshot.png" alt="Banner" />
+							<div class="banner-content">
+								<h1>Oh, Flock!</h1>
+							</div>
+						</div>
+					</header>
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+							<h1></h1>
+							<section>
+								<h2>About the Game</h2>
+								<p><b>Oh, Flock!</b> is a simple puzzle and strategy game in which you herd sheep towards a barn using your cursor. It originally started as just a fun demo, but gained some interest online, leading me to develop it further. I released a free demo with about 6 levels, which gained around 2000 downloads along side ~200,000 views on youtube.</p>
+								<ul>
+									<li>~20 levels each with unique mechanics and environments</li>
+									<li>Customisable characters</li>
+									<li>Interactive AI Sheep that respond to the players cursor</li>
+								</ul>
+							</section>
+							<section>
+								<h2>Development</h2>
+								<p>This game was developed originally solo but eventually gained the help of another programmer (Undead Alex) and a 3D Artist (Adriano Gjura). Being one of the first game's I had developed properly we heavily overscoped, leading to an eventual hault in development however from the experience I learnt a lot of valuable information.</p>
+								<p>The feature I am most proud of is the custom AI and navigation for the sheep. Whilst the original demo uses Unity's navigation AI system, I eventually realised for a game like this there are too many limitations that come with the built in algorithm. This lead to the creation of my own system involving shooting a series of raycasts in different directions from the sheep. Using the information from these raycasts the sheep can steer away from walls before reaching them, creating an AI that feels more aware of its environment. Additionally I implemented some basic flocking logic, this allows the player to herd multiple sheep at once as if they are close to one another their target paths become affected by the group, essentially pulling them closer to one another and clumping together, similair to the behaviour real sheeps display whilst being herded.</p>
+								<p></p>
+								<div class="gif-center">
+									<img src="images/ohFlockImages/ohFlockGif.gif" alt="Oh, Flock! Screenshot" />
+									<img src="images/ohFlockImages/ohFlockGif2.gif" alt="Oh, Flock! Screenshot" />
+								</div>
+								<h2></h2>
+								<p>I spent a lot of time focusing on the level mechanics too, creating reusable code that could be used all over the project, for example the system used for the car's is also used for UFOs, trains, smowballs, etc. While each of those seemingly have vastly different movements behind the scene they work with the same core component. This was my first experience with creating modular and reusable components which allowed me to develop levels much faster than I would have been otherwise, highlighting the important of a clean codebase with modularity in mind.</p>
+							</section>
+							<h2>Screenshots</h2>
+							<section class="tiles">
+								<article class="style0">
+									<span class="image">
+										<img src="images/ohFlockImages/ohFlockScreenshot (1).png" alt="Screenshot 1" />
+									</span>
+									<a>
+										<div class="content">
+											<p>Snowy environment featuring rolling snowballs.</p>
+										</div>
+									</a>
+								</article>
+								<article class="style0">
+									<span class="image">
+										<img src="images/ohFlockImages/ohFlockScreenshot (2).png" alt="Screenshot 1" />
+									</span>
+									<a>
+										<div class="content">
+											<p>Chained dog's jumping at the sheep.</p>
+										</div>
+									</a>
+								</article>
+								<article class="style0">
+									<span class="image">
+										<img src="images/ohFlockImages/ohFlockScreenshot (3).png" alt="Screenshot 1" />
+									</span>
+									<a>
+										<div class="content">
+											<p>A bridge / river level.</p>
+										</div>
+									</a>
+								</article>
+								<article class="style0">
+									<span class="image">
+										<img src="images/ohFlockImages/ohFlockScreenshot (4).png" alt="Screenshot 1" />
+									</span>
+									<a>
+										<div class="content">
+											<p>The first road level, featuring driving cars.</p>
+										</div>
+									</a>
+								</article>
+								<article class="style0">
+									<span class="image">
+										<img src="images/ohFlockImages/ohFlockScreenshot (5).png" alt="Screenshot 1" />
+									</span>
+									<a>
+										<div class="content">
+											<p>Train track level built off the car system, with faster moving vehicles.</p>
+										</div>
+									</a>
+								</article>
+								<article class="style0">
+									<span class="image">
+										<img src="images/ohFlockImages/ohFlockScreenshot (6).png" alt="Screenshot 1" />
+									</span>
+									<a>
+										<div class="content">
+											<p>Desert environment featuring UFO's.</p>
+										</div>
+									</a>
+								</article>
+							</section>
+						</div>
+					</div>
+
+				<!-- Footer -->
+				<footer id="footer">
+					<div class="inner">
+						<section>
+							<h2>Find me here</h2>
+							<ul class="icon-buttons">
+								<li>
+									<a href="https://github.com/Zack-Hawkes" class="icon-btn" target="_blank" rel="noopener">
+										<img src="icons/github.png" alt="GitHub" />
+										<span>GitHub</span>
+									</a>
+								</li>
+								<li>
+									<a href="https://zackhawkes.itch.io/" class="icon-btn" target="_blank" rel="noopener">
+										<img src="icons/itchio.png" alt="Itch.io" />
+										<span>Itch.io</span>
+									</a>
+								</li>
+								<li>
+									<a href="mailto:zackhawkes58@gmail.com" class="icon-btn">
+										<img src="icons/email.png" alt="Email" />
+										<span>Email</span>
+									</a>
+								</li>
+							</ul>
+						</section>
+						<ul class="copyright">
+							<li>&copy; Zack Hawkes. All rights reserved</li>
+						</ul>
+					</div>
+				</footer>
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

@@ -144,7 +144,7 @@ input, select, textarea {
 
 		a:hover {
 			border-bottom-color: transparent;
-			color: #ac70e4 !important;
+			color: #1e3a4b !important;
 		}
 
 	strong, b {
@@ -1844,20 +1844,53 @@ input, select, textarea {
 			color: inherit;
 		}
 
-			.icon.style2:before {
-				font-size: 1.1em;
-			}
+		.icon.style2:before {
+			font-size: 1.1em;
+		}
 
-			.icon.style2:hover {
-				color: #f2849e;
-				border-color: #f2849e;
-			}
+		.icon.style2:hover {
+			color: #f2849e;
+			border-color: #f2849e;
+		}
 
-			.icon.style2:active {
-				background-color: rgba(242, 132, 158, 0.1);
-			}
+		.icon.style2:active {
+			background-color: rgba(242, 132, 158, 0.1);
+		}
 
-/* List */
+		.icon-buttons {
+		display: flex;
+		gap: 1em;
+		list-style: none;
+		justify-content: flex-start;
+		padding-left: 0;
+		}
+		.icon-btn {
+		display: flex;
+		align-items: center;
+		background: #222;
+		border-radius: 6px;
+		padding: 0.5em 1em;
+		text-decoration: none;
+		color: #fff;
+		font-weight: 600;
+		transition: background 0.2s;
+		box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+		}
+		.icon-btn:hover {
+		background: #58b1e6;
+		color: #fff;
+		}
+		.icon-btn img {
+		width: 32px;
+		height: 32px;
+		object-fit: contain;
+		margin-right: 0.5em;
+		display: block;
+		}
+		.icon-btn span {
+		font-size: 1em;
+		letter-spacing: 0.03em;
+		}
 
 	ol {
 		list-style: decimal;
@@ -2818,11 +2851,67 @@ input, select, textarea {
 
 		}
 
+/* Tile images: force consistent size and cropping */
+.tiles .image img {
+  width: 315px;
+  height: 250px;
+  object-fit: cover;
+  display: block;
+  margin: 0 auto;
+}
+
+/* Banner image styles */
+.banner-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 300px;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.banner-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.banner-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.banner-content h1 {
+  color: #fff;
+  text-shadow: 0 2px 16px #000, 0 0 8px #000;
+  font-size: 3em;
+  font-weight: bold;
+  margin: 0;
+  pointer-events: auto;
+}
+
 /* Header */
 
 	#header {
-		padding: 8em 0 0.1em 0 ;
+		position: relative;
+		min-height: 300px;
+		padding: 0;
 	}
+
+		#header .inner {
+			position: relative;
+			z-index: 3;
+		}
 
 		#header .logo {
 			display: block;

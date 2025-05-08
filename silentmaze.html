@@ -1,0 +1,157 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Silent Maze</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<div class="banner-wrapper">
+							<img class="banner-image" src="images/silentMazeImages/silentMazeBanner.png" alt="Banner" />
+							<div class="banner-content">
+								<h1>Silent Maze</h1>
+							</div>
+						</div>
+					</header>
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+							<h1></h1>
+							<section>
+								<h2>About the Game</h2>
+								<p><b>Silent Maze</b> was an experimental horror game in which I implemented the players microphone as a core mechanic. This meant that any noises made in the real world would affect the game world abd screaming or talking in real life would attract the monsters. I made this project in March of 2024 as a personal challenge, limiting myself to 48 hours as a practice for game jams. </p>
+								<ul>
+									<li>Created within a 48-hour self-imposed time limit.</li>
+									<li>Uses the player's microphone as a gameplay mechanic.</li>
+									<li>Procedural maze generation using a depth first inspired algorithm</li>
+								</ul>
+							</section>
+							<section>
+								<h2>Development</h2>
+								<p>This project was developed in Unity using C++. There are three core components to the gameplay, these are procedural maze generation, enemy AI and the noise system / microphone implementation.</p>
+								<p>The maze itself is generated at runtime using a recursive depth-first search inspired algorithm. Each cell in the grid is a prefab consisting of four walls and four corners. The algorithm I designed essentially "carves out" a path by deactivating walls between visited cells before backtracking when it hits a wall with no unvisted neighbours. The algorithm is relatively simple but creates enough unpredictability for each level to be visually distinct. I made some additions to this algorithm by randomly selecting 5% of the walls and deactivating those as well. This helped to open the space up a bit more, allowing for the player to more freely explore the maze, without as many dead ends.</p>
+								<p>The monsters in the game where designed to respond entirely to noise, essentially making them blind. Using a distance value between themselves and the player, along side the players noise level, I was able to create a system that simulates the monsters being attracted to noise. While the monster never directly moves to the players location, it records the position of the last noise it heard and moves towards that instead giving the player a chance to escape, so long as they do it quietly.</p>
+								<p>The microphone system was the main experiment from this project and used some basic tricks for its implemententation. Once the game is opened the player is prompted to choose their primary microphone as well as manually scale the sensitivity. From there the game starts to record the microphones inputs. Every frame, I took a short sample of the audio buffer, analysing it for its loudest moment. The value is then multiplied by the sensitivity value and smoothed using linear interpoltation to avoid any erratic spikes returning a "loudness" value between 0 and 1.</p>
+								<pre><code>
+float[] samples = new float[sampleWindow];
+clip.GetData(samples, position - sampleWindow);
+
+float maxSample = 0;
+for (int i = 0; i < sampleWindow; i++)
+{
+	float sample = samples[i];
+	if (maxSample < sample) maxSample = sample;
+}
+
+float normalisedLoudness = maxSample * sensitivity;
+normalisedLoudness = Mathf.Clamp01(normalisedLoudness);
+								</code></pre>
+								<p>This value is then scaled up to create a "hearable distance" value, allowing the enemies to locate the player with audio alone. I also made a few tweaks to this value, adding to it when the player is moving, running or crouching. This helped the game feel more dynamic and ensured the system didn't rely entirely on the microphone.</p>
+								<p>The resulting prototype, while unpolished, is actually quite fun and proves the core concept of silence being mechanical can work in a game. That said I believe the addition of forcing the player to speak would have amplified the gameplay and intensity of the experience a lot, perhaps by making the game multiplayer with in game voice chat or adding some form of speech to text system.</p>
+							</section>
+							<h2>Screenshots</h2>
+							<section class="tiles">
+								<article class="style0">
+									<span class="image">
+										<img src="images/silentMazeImages/silentMazeScreenshot (1).png" alt="Screenshot 1" />
+									</span>
+									<a>
+										<div class="content">
+											<p>Maze generation example.</p>
+										</div>
+									</a>
+								</article>
+								<article class="style0">
+									<span class="image">
+										<img src="images/silentMazeImages/silentMazeScreenshot (2).png" alt="Screenshot 1" />
+									</span>
+									<a>
+										<div class="content">
+											<p>Audio detection example.</p>
+										</div>
+									</a>
+								</article>
+								<article class="style0">
+									<span class="image">
+										<img src="images/silentMazeImages/silentMazeScreenshot (3).png" alt="Screenshot 1" />
+									</span>
+									<a>
+										<div class="content">
+											<p>Gameplay screenshot.</p>
+										</div>
+									</a>
+								</article>
+								<article class="style0">
+									<span class="image">
+										<img src="images/silentMazeImages/silentMazeScreenshot (4).png" alt="Screenshot 1" />
+									</span>
+									<a>
+										<div class="content">
+											<p>Gameplay screenshot.</p>
+										</div>
+									</a>
+								</article>
+								<article class="style0">
+									<span class="image">
+										<img src="images/silentMazeImages/silentMazeScreenshot (5).png" alt="Screenshot 1" />
+									</span>
+									<a>
+										<div class="content">
+											<p>Maze generation demo using coroutines.</p>
+										</div>
+									</a>
+								</article>
+							</section>
+						</div>
+					</div>
+
+				<!-- Footer -->
+				<footer id="footer">
+					<div class="inner">
+						<section>
+							<h2>Find me here</h2>
+							<ul class="icon-buttons">
+								<li>
+									<a href="https://github.com/Zack-Hawkes" class="icon-btn" target="_blank" rel="noopener">
+										<img src="icons/github.png" alt="GitHub" />
+										<span>GitHub</span>
+									</a>
+								</li>
+								<li>
+									<a href="https://zackhawkes.itch.io/" class="icon-btn" target="_blank" rel="noopener">
+										<img src="icons/itchio.png" alt="Itch.io" />
+										<span>Itch.io</span>
+									</a>
+								</li>
+								<li>
+									<a href="mailto:zackhawkes58@gmail.com" class="icon-btn">
+										<img src="icons/email.png" alt="Email" />
+										<span>Email</span>
+									</a>
+								</li>
+							</ul>
+						</section>
+						<ul class="copyright">
+							<li>&copy; Zack Hawkes. All rights reserved</li>
+						</ul>
+					</div>
+				</footer>
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
