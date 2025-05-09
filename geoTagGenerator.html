@@ -27,68 +27,98 @@
 							<h1></h1>
 							<section>
 								<h2>About the Project</h2>
-								<p>This tool is a web-based application I developed designed to automate the generation of location-based tags. The basic idea being that a user could select an area on a map, then have the software automatically pull up all the relevant geographic features, such as buildings, parks, roads, etc. This information can then be used as metadata for images, streamlining the process of manual tagging and metadata creation for large sets of location based images.</p>
+								<p>This tool is a web-based application I developed designed to automate the generation of location-based tags. The basic idea being that a user could select an area on a map, then have the software automatically pull up all the relevant geographic features, such as buildings, parks, roads, etc. This information can then be used as metadata for images, streamlining the process of manual tagging and metadata creation for large sets of location based images. </p>
+								<p>Creating this tool was my first introduction to working with APIs, HTML, CSS and Javascript. Skill's I have since developed and used in other projects. It also introduced me to working with large datasets, challenging me to work with data filtering to get desirable results.</p>
 							</section>
 							<section>
 								<h2>Development</h2>
-								<p>Originally I attempted to create this software in Python using Folium as my... , however this a port of leaflet with less functionality...</p>
+								<p>Originally I attempted to create this software in Folium (a python wrapper for Leaflet.js), as I was more comfortable with Python at the time. Folium made it easy to create interactive maps, but I quickly ran into limitations, features like polygon selection and map rotation weren't available and customising the UI was difficult. Whilst I developed a working prototype, I decided to change course and use Leaflet.</p>
+								<p>As Leaflet is a JavaScript library, I had to learn the basics of JavaScript, HTML and CSS. I rewrote my original prototype as a web application, allowing me access to more advanced tools and control over the visuals.</p>
+								<p>Since I was now working in HTML and CSS I wanted to explore the possibilities for customising the UI, landing on recreating a Windows 98 easthetic, both as a fun challenge but also to deepen my knowledge of CSS. I built custom window components, draggable tabs and used retro styled buttons and images to complete the effect.</p>
+								<section class="tiles" style="margin-bottom: 2em; display: flex; justify-content: center;">
+									<article class="style0">
+										<span class="image">
+											<img src="images/geoTagGeneratorImages/geoTagGeneratorThumbnail.png" alt="Map Selection Area" />
+										</span>
+										<a>
+											<div class="content">
+												<p>The website in use, selecting an area contained in the image.</p>
+											</div>
+										</a>
+									</article>
+									<article class="style0">
+										<span class="image">
+											<img src="images/geoTagGeneratorImages/geoTagTagsListImage.png" alt="Generated Tag List Window" />
+										</span>
+										<a>
+											<div class="content">
+												<p>The generated tags, ready to be added to the metadata file.</p>
+											</div>
+										</a>
+									</article>
+								</section>
+								<p>One of the main challenges was filtering out the undersirable results. The original data often included generic buildings or big brand names (e.g. Starbucks) that weren't location specific. To fix this I revised my API requests and filtered any additional unwanted resutls. This included checking for the presence of certain tags, filtering out entries tagged with certain Amenity or Shop values. I further developed this by adding local storage persistence on the device, allowing the user to delete entries, ensuring they will never be pulled up again. I focused my attention on creating intuitive UI, allowing users to select between different categories, blacklist names and see changes made in real time.</p>
+							</section>
+							<section>
+								<h2>APIs and Data Sources</h2>
 								<ul>
-									<li>The spider's projectile speed is increased.</li>
-									<li>The spider's movement speed is increased.</li>
-									<li>The spider's firerate is increased.</li>
-									<li>The spider's projectiles progressively stop arching, decreasing the time the player has to react.</li>
+									<li>Leaflet.js for interactive maps and drawing boudning boxes.</li>
+									<li>Overpass API to fetch OpenStreetMap data for buildings, roads, parks, etc.</li>
+									<li>Nominatim for reverse geocoding, converting the coordinates of the bounding box to place names.</li>
 								</ul>
 							</section>
 							<section>
-								<h2>What I Learnt</h2>
-								<ul>
-									<li>How to use Unreal Engine's terrain system, lighting systems, etc.</li>
-									<li>3D sculpting / modelling and rigging in Blender.</li>
-									<li>Working with blueprints in Unreal and creating Inverse Kinematics systems.</li>
-									<li>Working in Unreal Engine with C++ to create simple AI systems and player movement.</li>
-								</ul>
-							<h2>Screenshots</h2>
-							<section class="tiles">
-								<article class="style0">
-									<span class="image">
-										<img src="images/spiderBossImages/spiderBossBanner.png" alt="Screenshot 1" />
-									</span>
-									<a>
-										<div class="content">
-											<p>Final environment and spider boss.</p>
-										</div>
-									</a>
-								</article>
-								<article class="style0">
-									<span class="image">
-										<img src="images/spiderBossImages/spiderBossScreenshot.png" alt="Screenshot 1" />
-									</span>
-									<a>
-										<div class="content">
-											<p>Inverse Kinematics testing by manually repositioning the spider.</p>
-										</div>
-									</a>
-								</article>
-								<article class="style0">
-									<span class="image">
-										<img src="images/spiderBossImages/spiderBossScreenshot2.png" alt="Screenshot 1" />
-									</span>
-									<a>
-										<div class="content">
-											<p>First attempt at making a projectile in the game.</p>
-										</div>
-									</a>
-								</article>
-								<article class="style0">
-									<span class="image">
-										<img src="images/spiderBossImages/spiderBossScreenshot3.png" alt="Screenshot 1" />
-									</span>
-									<a>
-										<div class="content">
-											<p>First test of spider movement in game.</p>
-										</div>
-									</a>
-								</article>
+								<h2>Lightroom Classic Plugin and Electron</h2>
+								<p>After creating the web application I wanted to integrate it into lighroom classic, which uses Lua for its plugins. Originally I considered using a local server to send data between the webpage and the plugin, however since I wanted the workflow to be as seamless as possible I decided to wrap the web app with Electron. This allowed me to write metadata files directly the the user's device, something not possible through browsers.</p>
+								<p>I developed a very basic Lightroom Classic Plugin that watches for any changesin the metadata file, if a change is made (e.g. the user has generated new tags), the lightroom plugin automatically edits the current photos metadata, adding a title, caption and the appropriate tags. This means I can tag images without even opening the app, making the process of tagging images much more efficient.</p>
+								<section class="tiles" style="margin-bottom: 2em; display: flex; justify-content: center;">
+									<article class="style0">
+										<span class="image">
+											<img src="images/geoTagGeneratorImages/geoTagPackagedApp.png" alt="Packaged App" />
+										</span>
+										<a>
+											<div class="content">
+												<p>The website packaged as an Electron app.</p>
+											</div>
+										</a>
+									</article>
+									<article class="style0">
+										<span class="image">
+											<img src="images/geoTagGeneratorImages/exampleMetadata.png" alt="Example metadata file in .json format" />
+										</span>
+										<a>
+											<div class="content">
+												<p>The generated metadata file, ready to be imported into Lightroom.</p>
+											</div>
+										</a>
+									</article>
+								</section>
+							</section>
+							<section>
+								<h2>Where this has been used</h2>
+								<p> This software was developed for my Dad, an Aerial Photographer, who works primarily in London. He often takes hundreds of images in a single day and previously had to manually tag each of them with the location, buildings, etc. This software allowed him to automate the process, saving him hours of work daily. He says it has improved his workflow greatly, allowing him to focus on his photography and editing as opposed to the tedious task of tagging images.</p> 
+								<section class="tiles" style="margin-bottom: 2em; display: flex; justify-content: center;">
+									<article class="style0">
+										<span class="image">
+											<img src="images/geoTagGeneratorImages/geoTagExample.png" alt="GeoTag Example Use" />
+										</span>
+										<a>
+											<div class="content">
+												<p>The generated metadata in use, on a photo of the Palace of Westminster.</p>
+											</div>
+										</a>
+									</article>
+									<article class="style0">
+										<span class="image">
+											<img src="images/geoTagGeneratorImages/geoTagExample2.png" alt="GeoTag Example Use" />
+										</span>
+										<a>
+											<div class="content">
+												<p>The generated metadata in use, on a photo of Tower Hill.</p>
+											</div>
+										</a>
+									</article>
+								</section>
 							</section>
 						</div>
 					</div>
