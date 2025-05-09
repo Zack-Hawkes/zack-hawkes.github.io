@@ -6,21 +6,46 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<style>
+			html {
+				scroll-behavior: smooth;
+			}
+		</style>
 	</head>
 	<body class="is-preload">
 		<!-- Wrapper -->
 			<div id="wrapper">
+				<header id="header" style="min-height:50px;">
+					<div class="inner">
+							<nav>
+								<ul>
+									<li><a href="#menu">Menu</a></li>
+								</ul>
+							</nav>
+					</div>
+				</header>
+
+				<nav id="menu">
+					<h2>Menu</h2>
+					<ul>
+						<li><a href="#home">Home</a></li>
+						<li><a href="#games">Games</a></li>
+						<li><a href="#projects">Projects</a></li>
+						<li><a href="#skills">Skills</a></li>
+						<li><a href="#contact">Contact</a></li>
+					</ul>
+				</nav>
+
 				<!-- Main -->
 					<div id="main">
 						<div class="inner">
-							<header>
-								<h1></h1>
-								<h1>Zack Hawkes<br/>
+							<header >
+								<h1 id="home">Zack Hawkes<br/>
 								Games Programming Portfolio</h1>
 								<p>Second Year Games Programming at Falmouth University</p>
 							</header>
 
-							<h2>Games</h2>
+							<h2 id="games">Games</h2>
 							<section class="tiles">
 								<article class="style1">
 									<span class="image">
@@ -57,13 +82,13 @@
 								</article>
 							</section>
 							<h2></h2>
-							<h2>Projects</h2>
+							<h2 id="projects">Projects</h2>
 							<section class="tiles">
 								<article class="style5">
 									<span class="image">
 										<img src="images/halfLife1Images/HalfLife1ModThumbnail.png" alt="Project 3" />
 									</span>
-									<a href="generic.html">
+									<a href="halfLifeMod.html">
 										<h2>Half Life 1 Mod</h2>
 										<div class="content">
 											<p>A mod involving pipes and fuel mechanics for Half Life 1 in GoldSrc Engine.</p>
@@ -94,13 +119,13 @@
 								</article>
 							</section>
 							<h2></h2>
-							<h2>Skills</h2>
+							<h2 id="skills">Skills</h2>
 							<li>Experienced in Unity, Pygame, Godot and Beginner knowledge of Unreal</li>
 							<li>C#, C++, Python, Javascript</li>
-							<li>Familiar with Git and version control</li>
-							<li>Limited experience with 3D modelling and texturing in Blender as well as 2D art in Procreate, Gimp and Photoshop</li>
+							<li>Familiar with Git and Version Control</li>
+							<li>Basic experience with 3D modelling and texturing in Blender, as well as 2D Ditigital art using Procreate and Photoshop</li>
 							<h2></h2>
-							<h2>Contact</h2>
+							<h2 id="contact">Contact</h2>
 							<p>If you would like to get in touch, please email me at <a href="mailto:zackhawkes58@gmail.com"> zackhawkes58@gmail.com </a></p>
 						</div>
 					</div>
