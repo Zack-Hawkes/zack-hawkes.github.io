@@ -10,6 +10,49 @@
 			html {
 				scroll-behavior: smooth;
 			}
+			.project-badges {
+				position: absolute;
+				left: 0;
+				bottom: 0;
+				display: flex;
+				gap: 0.5em;
+				align-items: flex-end;
+				z-index: 2;
+				padding: 0.5em;
+			}
+			.project-badge {
+				color: #fff;
+				background: #333;
+				border-radius: 6px;
+				padding: 2px 12px;
+				font-size: 0.85em;
+				font-weight: 600;
+				box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+				letter-spacing: 0.03em;
+				margin-bottom: 0.2em;
+				white-space: nowrap;
+			}
+			.tiles .image {
+				position: relative;
+				display: block;
+				width: 100%;
+				overflow: visible;
+			}
+			.tiles .image img {
+				display: block;
+				width: 100%;
+				transition: transform 0.3s cubic-bezier(.4,2,.6,1);
+			}
+			.tiles article:hover .image img {
+				transform: scale(1.08);
+				z-index: 2;
+			}
+			.tiles article:hover .project-badges {
+				z-index: 2;
+			}
+			.tiles .image {
+				margin-bottom: 2.2em;
+			}
 		</style>
 	</head>
 	<body class="is-preload">
@@ -42,14 +85,21 @@
 							<header >
 								<h1 id="home">Zack Hawkes<br/>
 								Games Programming Portfolio</h1>
-								<p>Second Year Games Programming at Falmouth University</p>
 							</header>
+
+							<h2 id="about">About Me</h2>
+							<p>Hi, I'm Zack, a games programmer from the UK, currently studying at Falmouth University in my second year. </p> 
+							<p>I've always had a fascination with games, taking a strong interest in how they work behind the scenes. This led to me joining the programming club during primary school at the age of 9 which sparked my interest in programming. Since then I have learnt a variety of languages and engines, and have been making games ever since!
 
 							<h2 id="games">Games</h2>
 							<section class="tiles">
 								<article class="style1">
 									<span class="image">
 										<img src="images/rattusMachinatusImages/rattusMachinatusThumbnail.png" alt="Rattus Machinatus Thumbnail" />
+										<div class="project-badges">
+											<span class="project-badge" style="background:#2e573a;">Unity</span>
+											<span class="project-badge" style="background:#2e573a;">C#</span>
+										</div>
 									</span>
 									<a href="rattusmachinatus.html">
 										<h2>Rattus Machinatus</h2>
@@ -61,6 +111,10 @@
 								<article class="style4">
 									<span class="image">
 										<img src="images/ohFlockImages/ohFlockThumbnail.png" alt="Project 1" />
+										<div class="project-badges">
+											<span class="project-badge" style="background:#803980;">Unity</span>
+											<span class="project-badge" style="background:#803980;">C#</span>
+										</div>
 									</span>
 									<a href="ohFlock.html">
 										<h2>Oh, Flock!</h2>
@@ -72,6 +126,10 @@
 								<article class="style2">
 									<span class="image">
 										<img src="images/silentMazeImages/silentMazeThumbnail.png" alt="Other Game" />
+										<div class="project-badges">
+											<span class="project-badge" style="background:#294c6b;">Unity</span>
+											<span class="project-badge" style="background:#294c6b;">C#</span>
+										</div>
 									</span>
 									<a href="silentmaze.html">
 										<h2>Silent Maze</h2>
@@ -87,6 +145,10 @@
 								<article class="style5">
 									<span class="image">
 										<img src="images/halfLife1Images/HalfLife1ModThumbnail.png" alt="Project 3" />
+										<div class="project-badges">
+											<span class="project-badge" style="background:#af310b;">GoldSrc</span>
+											<span class="project-badge" style="background:#af310b;">C++</span>
+										</div>
 									</span>
 									<a href="halfLifeMod.html">
 										<h2>Half Life 1 Mod</h2>
@@ -98,17 +160,26 @@
 								<article class="style6">
 									<span class="image">
 										<img src="images/geoTagGeneratorImages/geoTagGeneratorThumbnail.png" alt="Project 3" />
+										<div class="project-badges">
+											<span class="project-badge" style="background:#4b8b94;">JavaScript</span>
+											<span class="project-badge" style="background:#4b8b94;">HTML</span>
+											<span class="project-badge" style="background:#4b8b94;">CSS</span>
+										</div>
 									</span>
 									<a href="geoTagGenerator.html">
 										<h2>GeoTag Generator</h2>
 										<div class="content">
-											<p>Software that generates and exports location-based tags from map selections to lightroom classic.</p>
+											<p>Software that exports location-based tags from map selections to lightroom classic.</p>
 										</div>
 									</a>
 								</article>
 								<article class="style3">
 									<span class="image">
 										<img src="images/spiderBossImages/spiderBossThumbnail.png" alt="Another Game" />
+										<div class="project-badges">
+											<span class="project-badge" style="background:#851023;">Unreal</span>
+											<span class="project-badge" style="background:#851023;">Blueprints</span>
+										</div>
 									</span>
 									<a href="spiderBossFight.html">
 										<h2>Spider Boss Fight</h2>
