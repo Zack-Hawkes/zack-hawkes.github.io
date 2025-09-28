@@ -1,0 +1,166 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Half Life 1 Mod</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="../assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="../assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<div class="banner-wrapper">
+							<img class="banner-image" src="../images/halfLife1Images/HalfLife1ModBanner.png" alt="Banner" />
+							<div class="banner-content">
+								<h1>Half Life 1 Mod</h1>
+							</div>
+						</div>
+					</header>
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+							<h1></h1>
+							<section>
+								<h2>About the Project</h2>
+								<p>This mod was developed for a second year uni project, the mod involved adding a new puzzle mechanic and adding to the existing train system in Half Life. This mod involved creating a level using Jack Hammer, working in the GoldSrc engine and directly modifying Half Life 1s source code.</p>
+								<p>The core idea was to extend Half Life’s rail sequences with a fuel-gated progression loop. Players must restore power to a train by sourcing fuel, routing pipes and interacting with valves in order to depart. The work combined level scripting in the J.A.C.K. editor along side engine-side changes compiled into custom DLLs.</p>
+							</section>
+
+							<section>
+								<h2>Demo Video</h2>
+								<div style="display: flex; justify-content: center; margin-bottom: 2em;">
+									<iframe width="1120" height="630" src="https://www.youtube.com/embed/TgsIfz9vK78?rel=0&modestbranding=1&iv_load_policy=3&showinfo=0&autoplay=1&mute=1&loop=1&playlist=TgsIfz9vK78" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="pointer-events: none;"></iframe>
+								</div>
+							</section>
+
+							<section>
+								<h2>Goals and Features</h2>
+								<ul>
+									<li>The primary goal was to create a 5 minute level that introduces the puzzle mechanic in a way that would feel seamless within the existing gameplay.</li>
+									<li>The puzzle loop was a Fuel-gated train system integrated with existing GoldSrc path_track and func_train logic.</li>
+									<li>There was a secondary focus on diegetic and environmental signage for guidance, allowing me to experience Level Design from a developer's perspective.</li>
+								</ul>
+							</section>
+
+							<section>
+								<h2>Technical Work</h2>
+								<ul>
+									<li>GoldSrc Engine (Half-Life 1) — Custom C/C++ changes built into client/server DLLs.</li>
+									<li>Level design using J.A.C.K. editor — Entity I/O wiring, optimisation and light pass. The level features scripted events using Half Life's built in entity system.</li>
+									<li>Gameplay - State machine for train power, interacting with fuel sources and classic Half-Life mechanics like enemies, puzzles and environmental storytelling.</li>
+								</ul>
+								<p>On the code side I introduced a series of additions. Starting with tracking the fuel state of the train and introducing a system for managing pipe interactions. The train uses the built in func_train entity to move along a path, meaning my system could be implemented into the base game easily.</p>
+							</section>
+
+							<section>
+								<h2>Challenges and Solutions</h2>
+								<ul>
+									<li>The technical limitations of the GoldSrc engine and J.A.C.K editor meant I had to get creative with the mechanics set-up. A lack of built-in support for certain interactions, such as pipe rotations, required a lot of custom scripting and workarounds. Coming up with a method to chain pipes together, allowing the game to know when the puzzle was solved, was a key challenge.</li>
+									<li>Implementing save and load logic with the puzzle mechanics was also challenging as I had to ensure the state of the train and the pipe puzzles persisted correctly using a system I was not familiar with.</li>
+									<li>The most significant challenge and point of failure was working with the limited debugging tools available, meaning I had to work around the lack of real-time feedback and logging. It proved an interesting challenge that required a lot of trial and error.</li>
+								</ul>
+							</section>
+
+							<section>
+								<h2>Role and Responsibilities</h2>
+								<ul>
+									<li>Gameplay programming in the Half-Life SDK (C/C++).</li>
+									<li>Level scripting and entity logic in J.A.C.K.</li>
+									<li>Blockout, greybox-to-art pass, lighting and iteration.</li>
+									<li>Playtesting and balancing puzzle flow.</li>
+								</ul>
+							</section>
+
+							<h2>Screenshots</h2>
+							<section class="tiles">
+								<article class="style0">
+									<span class="image">
+										<img src="../images/halfLife1Images/Screenshot 2025-05-04 191212.png" alt="Tutorial Puzzle" />
+									</span>
+									<a>
+										<div class="content">
+											<p>The first puzzle introduces the player to the fuel mechanic in it's simplest form.</p>
+										</div>
+									</a>
+								</article>
+								<article class="style0">
+									<span class="image">
+										<img src="../images/halfLife1Images/Screenshot 2025-05-07 224907.png" alt="Valve puzzle space" />
+									</span>
+									<a>
+										<div class="content">
+											<p>In engine view of a valve and pipe network used to unlock the train bay.</p>
+										</div>
+									</a>
+								</article>
+								<article class="style0">
+									<span class="image">
+										<img src="../images/halfLife1Images/Screenshot 2025-05-08 011958.png" alt="Environment Screenshot" />
+									</span>
+									<a>
+										<div class="content">
+											<p>Partial view of the environment showcasing my use of lighting, colour and assets to create atmosphere and guide player movement.</p>
+										</div>
+									</a>
+								</article>
+								<article class="style0">
+									<span class="image">
+										<img src="../images/halfLife1Images/Screenshot 2025-05-08 012136.png" alt="Final textured valve puzzle space" />
+									</span>
+									<a>
+										<div class="content">
+											<p>Another angle of the finished valve puzzle space showcasing the use of textures and the main puzzle mechanic.</p>
+										</div>
+									</a>
+								</article>
+							</section>
+						</div>
+					</div>
+
+				<!-- Footer -->
+				<footer id="footer">
+					<div class="inner">
+						<section>
+							<h2>Find me here</h2>
+							<ul class="icon-buttons">
+								<li>
+									<a href="https://github.com/Zack-Hawkes" class="icon-btn" target="_blank" rel="noopener">
+												<img src="../icons/github.png" alt="GitHub" />
+										<span>GitHub</span>
+									</a>
+								</li>
+								<li>
+									<a href="https://zackhawkes.itch.io/" class="icon-btn" target="_blank" rel="noopener">
+												<img src="../icons/itchio.png" alt="Itch.io" />
+										<span>Itch.io</span>
+									</a>
+								</li>
+								<li>
+									<a href="mailto:zackhawkes58@gmail.com" class="icon-btn">
+												<img src="../icons/email.png" alt="Email" />
+										<span>Email</span>
+									</a>
+								</li>
+							</ul>
+						</section>
+						<ul class="copyright">
+							<li>&copy; Zack Hawkes. All rights reserved</li>
+						</ul>
+					</div>
+				</footer>
+			</div>
+
+		<!-- Scripts -->
+			<script src="../assets/js/jquery.min.js"></script>
+			<script src="../assets/js/browser.min.js"></script>
+			<script src="../assets/js/breakpoints.min.js"></script>
+			<script src="../assets/js/util.js"></script>
+			<script src="../assets/js/main.js"></script>
+
+	</body>
+</html>
