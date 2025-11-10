@@ -14,7 +14,7 @@
 				<!-- Header -->
 					<header id="header">
 						<div class="banner-wrapper">
-							<img class="banner-image" src="../images/virtualRealityCardGame/Screenshot 2025-11-09 191317.png" alt="Banner" />
+							<img class="banner-image" src="../images/virtualRealityCardGame/Banner.png" alt="Banner" />
 							<div class="banner-content">
 								<h1>Virtual Reality Card Game</h1>
 							</div>
@@ -27,7 +27,35 @@
 							<h1></h1>
 							<section>
 								<h2>About the Project</h2>
-								<p>This project was developed during my third year of university. I wanted to develop a virtual reality game to explore XR development and gain experience with immersive technologies. It was developed using my Meta Quest 3s in Unity.</p>
+								<p>For this project I programmed and designed a Virtual Reality Card Game using Unity, C# and the Meta Quest 3s. It's a relatively simple game in which you play against an AI opponent, summoning creatures and casting spells to defeat them.</p>
+								<p>For the virtual reality integration I implemented head and hand tracking, allowing you to pick up, place and interact with cards on the table. I also implemented haptic feedback and in-game hand collisions, to enhance the immersive experience. </p>
+							</section>
+
+							<section class="tiles" style="margin-bottom: 2em; display: flex; justify-content: center;">
+								<article class="style0">
+									<span class="image">
+										<img src="../images/virtualRealityCardGame/headsetPhoto.png" alt="Photo of my Headset" />
+									</span>
+									<a>
+										<div class="content">
+											<p>My Meta Quest 3 headset banished to the table after giving me a headache.</p>
+										</div>
+									</a>
+								</article>
+								<article class="style0">
+									<span class="image">
+										<img src="../images/virtualRealityCardGame/EarlyDevelopmentGameplay.png" alt="Early Development Gameplay" />
+									</span>
+									<a>
+										<div class="content">
+											<p>Early development gameplay showing off basic interactions between hands and cards.</p>
+										</div>
+									</a>
+								</article>
+							</section>
+
+							<section>
+								<p>Working in virtual reality presents many unique challenges. The most obvious being a new controller system that relies on tracking multiple devices in 3D space as opposed to the much more static, keyboard and mouse. This issue was most prevelant when trying position the camera in engine. During development I found myself frequently moving positions which would cause the camera to end up below the table, or at the ceiling. Any attempt at fixing this by repositioing the camera automatically, resulted in me getting motion sick within seconds however I eventually developed a system that allowed you to press and hold the right trigger to reset the camera view, which worked perfectly. </p>
 							</section>
 
 							<h2>Early Development Video</h2>
@@ -42,30 +70,35 @@
 
 							<section>
 								<h2>Development</h2>
-								<p>VR Project thing.</p>
+								<p>Development started off with establishing the core VR interaction mechanics, before implementing the actual gameplay. </p> 
+								<p>I built a system that first generates the cards for the enemy before presenting the player with a random selection of environment and troops cards to pick from. The rest of the gameplay is turn based, with the enemy selecting either a move card, applying it to their creature, or a spell card, directly attacking your troops. You then do the same, and the cycle until either player succesfully defeats all their opponents troops.</p>
 								<ul>
-									<li>I did a thing.</li>
-									<li>Another thing.</li>
-									<li>Another another thing.</li>
-									<li>Anotherrrr thing.</li>
+									<li>Implemented hand tracking with simple card interactions.</li>
+									<li>Developed an AI opponent that makes decisions based on a predefined set of rules, chosen based on the game state.</li>
+									<li>Created a modular card system, allowing me to easily add new cards, landscapes and effects.</li>
 								</ul>
 							</section>
-							<section>
-								<h2>What I Learnt</h2>
-								<ul>
-									<li>Yada.</li>
-									<li>Yada.</li>
-									<li>Ladee-da.</li>
-								</ul>
+
+							<section style="display: flex; align-items: flex-start; gap: 2em; margin-bottom: 2em;">
+								<div style="flex: 1;">
+									<h3>Movement Controller</h3>
+									<p>I decided early on in development to not use any prebuilt components for head and hand tracking. Instead I opted to use the InputSystem to handle the devices. I chose to handle it this way to learn more about how XR systems actually work, and to have full control over the implementation.</p>
+									<p>You can see here a short code snippet taking from my 'VrController' script, in which I handle the hand and head tracking.</p>
+								</div>
+								<div style="flex: 1;">
+									<img src="../images/virtualRealityCardGame/movementCodeSnippet.png" alt="Movement Controller Code Snippet" style="width: 100%; border-radius: 5px;" />
+								</div>
+							</section>
+
 							<h2>Screenshots</h2>
 							<section class="tiles">
 								<article class="style0">
 									<span class="image">
-										<img src="../images/virtualRealityCardGame/Screenshot 2025-09-18 110055.png" alt="Screenshot 1" />
+										<img src="../images/virtualRealityCardGame/EarlyDevelopmentBoard.png" alt="Screenshot 1" />
 									</span>
 									<a>
 										<div class="content">
-											<p>Screenshot of something.</p>
+											<p>Early development board layout, with randomly selected environment cards.</p>
 										</div>
 									</a>
 								</article>
