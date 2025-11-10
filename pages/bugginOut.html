@@ -1,0 +1,105 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Buggin' Out</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="../assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="../assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<div class="banner-wrapper">
+							<img class="banner-image" src="../images/bugginOut/Banner.png" alt="Banner" />
+							<div class="banner-content">
+								<h1>Buggin' Out</h1>
+							</div>
+						</div>
+					</header>
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+							<h1></h1>
+							<section>
+								<h2>About the Project</h2>
+								<p>Buggin' Out is an online multiplayer, bug-catching game where you interact, compete and care for bugs. The game is still currently in development, but we are working on it as part of a third year university assignment.</p>
+							</section>
+
+							<p></p>
+							<div class="gif-center">
+								<img src="../images/bugginOut/bugAiScare.gif" alt="Scaring a bug" />
+								<img src="../images/bugginOut/bugCatching.gif" alt="Catching a bug" />
+								<img src="../images/bugginOut/race.gif" alt="Bug racing" />
+							</div>
+							<p></p>
+
+							<section>
+								<h2>Multiplayer Networking and My Role</h2>
+								<p>This game is my first *proper* online multiplayer project. I have limited experience when working with networking through various other old projects, however it was this project that first introduced me to subjects such as server authority, peer to peer networking and the use of steam API.</p>
+								<p>As one of two programmers on the team, I have been mostly focused on the networking and multiplayer aspects of the game. I developed the AI system for the bugs, a fully networked and modular parent script for minigames and the majority of the player movement and inventory mechanics. </p> 
+								<p>A key focus when working on this project has been server authority. Since the game does feature competitive elements, cheating could play a large role if / when we go public with the game. To combat this I developed the core components of the game with multiplayer in mind. The server maintains an authoritative list of all bugs other players own, including their stats, rarity and customisations. Whilst the player can easily modify stats locally, and mofidications to stats they make are purely visual until validated by the server.</p>
+								<p>All core components follow this same structure, bug catches are verified server side, checking player proximity before confirming the catch, minigame results are calculated server side to prevent manipulating results and all inventory changes and shop purchases are verified by the server before being applied.</p>
+							</section>
+
+							<section>
+								<h2>Shader Development</h2>
+
+								<div class="gif-center">
+									<img src="../images/bugginOut/terrainShader.gif" alt="Terrain Shader Demo" />
+									<img src="../images/bugginOut/dayNightCycle.gif" alt="Day and night cycle" />
+								</div>
+
+								<p>Another key role I played in the game, was developing custom shaders to enhance the visual appeal of the game, and to improve the workflow within the Unity editor.</p>
+								<p>One of the shader's I am most proud of is the terrain shader, using triplanar mapping and normal-based colouring. This allows us to carve mountains and valleys seamlessly without texture stretching or the need to manually paint cliff faces. I also set this up to work alongside unity's built it texture system. By painting on new textures we can create different biomes, with their own cliff and floor colours, greatly improving the speed of which we develop the map.</p>
+								<p>Another shader I developed was one for the skybox. Using this shader, we can blend multiple colours to create gradients and a dynamic day and night cycle. I made use of multiple noise techniques, including simplex and voronoi. At night I used these to create stars that slowly twinkle and rotate. And I used a similair method to create stylised clouds in the sky, that pan across the map casting interesting shadows on the floor. </p>
+							</section>
+						</div>
+					</div>
+
+				<!-- Footer -->
+				<footer id="footer">
+					<div class="inner">
+						<section>
+							<h2>Find me here</h2>
+							<ul class="icon-buttons">
+								<li>
+									<a href="https://github.com/Zack-Hawkes" class="icon-btn" target="_blank" rel="noopener">
+												<img src="../icons/github.png" alt="GitHub" />
+										<span>GitHub</span>
+									</a>
+								</li>
+								<li>
+									<a href="https://zackhawkes.itch.io/" class="icon-btn" target="_blank" rel="noopener">
+												<img src="../icons/itchio.png" alt="Itch.io" />
+										<span>Itch.io</span>
+									</a>
+								</li>
+								<li>
+									<a href="mailto:zackhawkes58@gmail.com" class="icon-btn">
+												<img src="../icons/email.png" alt="Email" />
+										<span>Email</span>
+									</a>
+								</li>
+							</ul>
+						</section>
+						<ul class="copyright">
+							<li>&copy; Zack Hawkes. All rights reserved</li>
+						</ul>
+					</div>
+				</footer>
+			</div>
+
+		<!-- Scripts -->
+			<script src="../assets/js/jquery.min.js"></script>
+			<script src="../assets/js/browser.min.js"></script>
+			<script src="../assets/js/breakpoints.min.js"></script>
+			<script src="../assets/js/util.js"></script>
+			<script src="../assets/js/main.js"></script>
+
+	</body>
+</html>

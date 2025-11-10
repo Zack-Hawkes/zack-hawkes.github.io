@@ -2900,6 +2900,23 @@ input, select, textarea {
   pointer-events: auto;
 }
 
+/* GIF center styles */
+.gif-center {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+.gif-center img {
+  max-width: 400px;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
 /* Header */
 
 	#header {
