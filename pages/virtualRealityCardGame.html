@@ -27,8 +27,8 @@
 							<h1></h1>
 							<section>
 								<h2>About the Project</h2>
-								<p>For this project I programmed and designed a Virtual Reality Card Game using Unity, C# and the Meta Quest 3s. It's a relatively simple game in which you play against an AI opponent, summoning creatures and casting spells to defeat them.</p>
-								<p>For the virtual reality integration I implemented head and hand tracking, allowing you to pick up, place and interact with cards on the table. I also implemented haptic feedback and in-game hand collisions, to enhance the immersive experience. </p>
+								<p>For this project I programmed and designed a Virtual Reality Card Game using Unity, C# and the Meta Quest 3s. It's a relatively simple game in which you play against an AI opponent, summoning landscapes and creatures to defeat them.</p>
+								<p>The primary focus of this project was to experiment with XR and VR development, as it's something I am interested in pursuing as a career option in the future. I wanted to get a handle on the unique challanges that working with virtual reality presents. Throughout development, I learned that working with VR requires you to change your approach to game design and user interactions, whilst many parts of the development process is similair to what I am used to (making games for Windows and PC) the actual testing and iterative process is quite different and requires a lot more patience.</p>
 							</section>
 
 							<section class="tiles" style="margin-bottom: 2em; display: flex; justify-content: center;">
@@ -38,7 +38,7 @@
 									</span>
 									<a>
 										<div class="content">
-											<p>My Meta Quest 3 headset banished to the table after giving me a headache.</p>
+											<p>My Meta Quest 3s headset.</p>
 										</div>
 									</a>
 								</article>
@@ -54,58 +54,69 @@
 								</article>
 							</section>
 
-							<section>
-								<p>Working in virtual reality presents many unique challenges. The most obvious being a new controller system that relies on tracking multiple devices in 3D space as opposed to the much more static, keyboard and mouse. This issue was most prevelant when trying position the camera in engine. During development I found myself frequently moving positions which would cause the camera to end up below the table, or at the ceiling. Any attempt at fixing this by repositioing the camera automatically, resulted in me getting motion sick within seconds however I eventually developed a system that allowed you to press and hold the right trigger to reset the camera view, which worked perfectly. </p>
-							</section>
-
-							<h2>Early Development Video</h2>
-							<section style="text-align: center;">
-								<iframe width="315" height="560"
-								src="https://www.youtube.com/embed/GqzOEmDn9gU"
-								title="YouTube video player"
-								frameborder="0"
-								allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-								allowfullscreen></iframe>
-							</section>
+							<h2>Primary Goals</h2>
 
 							<section>
-								<h2>Development</h2>
-								<p>Development started off with establishing the core VR interaction mechanics, before implementing the actual gameplay. </p> 
-								<p>I built a system that first generates the cards for the enemy before presenting the player with a random selection of environment and troops cards to pick from. The rest of the gameplay is turn based, with the enemy selecting either a move card, applying it to their creature, or a spell card, directly attacking your troops. You then do the same, and the cycle until either player succesfully defeats all their opponents troops.</p>
-								<ul>
-									<li>Implemented hand tracking with simple card interactions.</li>
-									<li>Developed an AI opponent that makes decisions based on a predefined set of rules, chosen based on the game state.</li>
-									<li>Created a modular card system, allowing me to easily add new cards, landscapes and effects.</li>
-								</ul>
+								<ol>
+									<li><b>VR Integration</b> - Before even starting the project, I understood that working with VR can be a challenge, potentially highlighting the reason that the industry still hasn’t grown to the extent many people believed it would. Desipite the limitations of the technology, I wanted the experience to feel like playing an actual boardgame with the added benefits of the simulated environment.</li>
+									<li><b>Haptic and Visual Feedback</b> - Considering the fact the game is played in virtual reality, providing tactile and visual feedback is pretty important to the overall experience. Whilst you can’t currently simulate “touch”, grabbing a card can be made much more "real" through the use of haptic responses. Small controller vibrations when interacting with an object or colliding with the walls, definitely add polish to the game and it's the subtle details that make the game more immersive, at least in my own experience with VR games.</li>
+									<li><b>The Actual Gameplay</b> - Whilst I treated the core gameloop as a secondary priority throughout development, I still wanted the gameplay to be clear, intuitive and enjoyable. The core gameplay loop takes place in 3 parts, the <i>card selection process</i> in which you and the AI enemy choose troops and landscapes. The <i>battle phase</i> in which you select troops to attack or move. And of course <i>winning or losing</i>, in which the first player to destroy all their opponents landscapes, takes the win.</li>
+								</ol>
 							</section>
 
 							<section style="display: flex; align-items: flex-start; gap: 2em; margin-bottom: 2em;">
 								<div style="flex: 1;">
-									<h3>Movement Controller</h3>
-									<p>I decided early on in development to not use any prebuilt components for head and hand tracking. Instead I opted to use the InputSystem to handle the devices. I chose to handle it this way to learn more about how XR systems actually work, and to have full control over the implementation.</p>
-									<p>You can see here a short code snippet taking from my 'VrController' script, in which I handle the hand and head tracking.</p>
+									<h2>VR Implementation</h2>
+									<p>The first mechanic I integrated was the VR controls and mechanics. I started with integrating the head and hand tracking. Unity provides many prebuilt tools, packages and components for this, but I specifically chose to avoid these components so I could fully grasp the mechanics taking place. I used the InputManager to track my devices, then calculated their change in positions and rotations to simulate hand and head tracking. You can see a short snippet of the VRController from early development here. </p>
+									<p>Later I went on to add hand collisions, whilst the players real hand can easily pass through tables, a technique commonly used in VR is to simulate the hands in the game space, taking the players real hand position as “Suggestion”. This allows the hand the players see to appear to interact with the world in a real, physical way, and you can see some examples of that in the videos below.</p>
 								</div>
 								<div style="flex: 1;">
 									<img src="../images/virtualRealityCardGame/movementCodeSnippet.png" alt="Movement Controller Code Snippet" style="width: 100%; border-radius: 5px;" />
 								</div>
 							</section>
+							
+							<h2>Shell Texturing and Optimisations</h2>
 
-							<h2>Screenshots</h2>
-							<section class="tiles">
+							<p>Once I had the basic tracking down, I decided to start working on the actual board for the game. I knew early on I wanted to make the board look like a sort of “field” and through my research, I discovered that VR headsets often don’t play nicely with dense, high poly grass. While powerful, VR headsets are still not at the level of the modern day PCs meaning optimisations are super important to the player experience. This is particularly true, as research into VR games indicated that VR experiences running at less than 120fps would often result in the user experiencing <a href="https://pubmed.ncbi.nlm.nih.gov/37027727/" target="_blank" rel="noopener">Simulator Sickness</a>. Whilst my scene is relatively small, and I could likely have gotten away with the classic billboard grass approach, I took this as an opportunity to develop my shader graph skills, as it felt relevant to the overall challenge of working in VR. The technique I landed on for my grass is called <a href="https://tmpvar.com/poc/shell-texturing/" target="_blank" rel="noopener">Shell Texturing</a>. </p>
+							<p>Shell Texturing is a technique I learned about from the game “Viva Pinata” where it was used to create the illusion of fur. The technique is quite simple, by layering transparent planes on top of one another, with each one getting “thinner” than the last, you can create a pretty convincing looking grass that, from a distance, looks incredibly dense and detailed, all at an incredibly low performance cost. With this technique, you can draw one blade of grass or one-thousand with the exact same number of faces.</p>
+
+							<section class="tiles" style="margin-bottom: 2em; display: flex; justify-content: center;">
 								<article class="style0">
 									<span class="image">
-										<img src="../images/virtualRealityCardGame/EarlyDevelopmentBoard.png" alt="Screenshot 1" />
+										<img src="../images/virtualRealityCardGame/shellTexturingGrass.png" alt="Shell texturing grass demo" />
 									</span>
 									<a>
 										<div class="content">
-											<p>Early development board layout, with randomly selected environment cards.</p>
+											<p>The sort of grass that shell texturing can create.</p>
+										</div>
+									</a>
+								</article>
+								<article class="style0">
+									<span class="image">
+										<img src="../images/virtualRealityCardGame/shellTexturingDemo.png" alt="Shell texturing demo, showing each layer more clearly" />
+									</span>
+									<a>
+										<div class="content">
+											<p>A better view of the different layers created from the shell texturing technique.</p>
+										</div>
+									</a>
+								</article>
+								<article class="style0">
+									<span class="image">
+										<img src="../images/virtualRealityCardGame/shellTexturingShaderGraph.png" alt="Shell texturing shader graph screenshot" />
+									</span>
+									<a>
+										<div class="content">
+											<p>A screenshot of the shader graph used to create the shell texturing effect.</p>
 										</div>
 									</a>
 								</article>
 							</section>
-						</div>
+							
+							<h2>Board Game Loop</h2>
+							<p>With optimisations and the controller parts finished, the actual board game loop was the last part to complete. For this I developed a simple AI agent for the player to go up against. This agent has some basic rules, primarily picking the best troop or spell with the highest damage and choosing to attack your lowest health troop. Since the game is mechanically simple, this approach was easy to implement whilst still introducing a sense of challenge. I developed a point and click approach to selecting troops, allowing you to select any troop or spell on your board, and then select your enemies' neighbouring troops to attack, or select your own landscape to move your troops around. The game loop was split into two stages: the Card Stage, allowing you to select and place down a card from the deck and the Battle Phase, allowing you to attack your opponent. Each player takes turns, swapping at the end of each battle phase. The primary goal is to “burn” your opponents landscapes, rendering them unusable. To do this you must simply attack the landscape, whilst there are no troops placed on it, lowering its health. The game ends when all of your opponents (or your own) landscapes are burned.</p>
 					</div>
-
+				</div>
 				<!-- Footer -->
 				<footer id="footer">
 					<div class="inner">
