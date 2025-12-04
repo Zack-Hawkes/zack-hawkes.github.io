@@ -2765,9 +2765,16 @@ input, select, textarea {
 				transform: scale(1.1);
 			}
 
+			body:not(.is-touch) .tiles article:hover > a {
+				-moz-transform: scale(1.1);
+				-webkit-transform: scale(1.1);
+				-ms-transform: scale(1.1);
+				transform: scale(1.1);
+			}
+
 				body:not(.is-touch) .tiles article:hover > .image:before {
-					background-color: #333333;
-					opacity: 0.35;
+					background-color: #000000;
+					opacity: 0.8;
 				}
 
 				body:not(.is-touch) .tiles article:hover > .image:after {
@@ -2909,7 +2916,7 @@ input, select, textarea {
   gap: 1rem;
   margin: 2rem 0;
 }
-
+style1
 .gif-center img {
   max-width: 400px;
   width: 100%;
@@ -3425,3 +3432,56 @@ input, select, textarea {
 			}
 
 		}
+/* Custom Tags */
+.tags {
+    position: absolute;
+    bottom: 1em;
+    left: 1em;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5em;
+    justify-content: flex-start;
+    z-index: 4;
+    pointer-events: none;
+}
+
+.tag {
+    display: inline-block;
+    background-color: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 4px;
+    padding: 0.2em 0.6em;
+    font-size: 0.7em;
+    font-weight: 700;
+    color: #ffffff;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    backdrop-filter: blur(4px);
+}
+
+/* Back to Home Button */
+.back-to-home {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 10000;
+    background-color: #ffffff;
+    color: #333333 !important;
+    padding: 0.75em 1.5em;
+    border-radius: 4px;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-size: 0.7em;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    border-bottom: none;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.back-to-home:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+    color: #58b1e6 !important;
+}
+
